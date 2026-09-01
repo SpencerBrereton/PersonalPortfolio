@@ -1,0 +1,194 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 1400px;
+  width: 95%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Glassmorphism Card Style */
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 32px;
+  box-shadow: var(--glass-shadow);
+  z-index: 10;
+}
+
+@media (min-width: 600px) {
+  .project-card {
+    padding: 2.5rem;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .project-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    padding: 3.5rem;
+    margin: 0 auto;
+  }
+  
+  .project-card.reverse-layout {
+    flex-direction: row-reverse;
+  }
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px 0 rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-media {
+  flex: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.media-glass-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05); /* Subtle inner shadow or contrast */
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 16 / 9;
+  transform: perspective(1000px) rotateY(0deg) scale(1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover .media-glass-wrapper {
+  transform: perspective(1000px) scale(1.03);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.media-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), transparent);
+  pointer-events: none;
+}
+
+.project-info {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.project-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--primary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.01em;
+}
+
+.project-subtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1.25rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--primary-color);
+  border: 1px solid rgba(59, 82, 119, 0.1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.project-card.visible .tech-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-badge:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(59, 82, 119, 0.2);
+  border-color: transparent;
+  transition-delay: 0s !important; /* Ensure hover is instant despite entrance delay */
+}
+
+.project-description {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Compact button overrides for cards */
+.btn.compact {
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  border-radius: 12px;
+}
+
+.btn-live-demo {
+  background: var(--retro-gradient);
+  background-size: 200% auto;
+  color: white !important;
+  border: none;
+  box-shadow: 0 4px 15px rgba(189, 52, 64, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-live-demo:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(189, 52, 64, 0.35);
+}
+

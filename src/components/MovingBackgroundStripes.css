@@ -1,0 +1,58 @@
+.moving-background-stripes {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.moving-stripe-row {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: 200%; /* Two segments worth */
+  height: 12px;
+  animation: slideLeftToRight 20s linear infinite;
+  will-change: transform;
+}
+
+.stripe-segment {
+  display: flex;
+  width: 50%; /* One full segment is 50% of the 200% width container */
+  height: 100%;
+}
+
+.bg-stripe {
+  flex: 1;
+  height: 100%;
+}
+
+.bg-stripe-0 { background-color: var(--accent-red); }
+.bg-stripe-1 { background-color: var(--secondary-color); }
+.bg-stripe-2 { background-color: var(--accent-yellow); }
+.bg-stripe-3 { background-color: var(--primary-color); }
+
+@keyframes slideLeftToRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* Optional: Slight variation in rows for more interest */
+.moving-stripe-row:nth-child(even) {
+  animation-direction: reverse;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .moving-stripe-row {
+    height: 8px;
+  }
+}

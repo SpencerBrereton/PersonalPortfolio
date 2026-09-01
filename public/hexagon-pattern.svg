@@ -1,0 +1,20 @@
+<svg width="120" height="104" viewBox="0 0 120 104" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="hexPattern" x="0" y="0" width="120" height="104" patternUnits="userSpaceOnUse">
+      <!-- Row 1 -->
+      <!-- Primary blue tint -->
+      <polygon points="30,0 60,17.3 60,52 30,69.3 0,52 0,17.3" fill="#f9f7f3" stroke="#d4c5b4" stroke-width="1.2"/>
+      <!-- Secondary orange tint -->
+      <polygon points="90,0 120,17.3 120,52 90,69.3 60,52 60,17.3" fill="#fdf8f2" stroke="#d4c5b4" stroke-width="1.2"/>
+
+      <!-- Row 2 (offset) -->
+      <!-- Accent yellow tint -->
+      <polygon points="0,52 30,69.3 30,104 0,121.3 -30,104 -30,69.3" fill="#fefbf6" stroke="#d4c5b4" stroke-width="1.2"/>
+      <!-- Primary blue tint -->
+      <polygon points="60,52 90,69.3 90,104 60,121.3 30,104 30,69.3" fill="#f9f7f3" stroke="#d4c5b4" stroke-width="1.2"/>
+      <!-- Secondary orange tint -->
+      <polygon points="120,52 150,69.3 150,104 120,121.3 90,104 90,69.3" fill="#fdf8f2" stroke="#d4c5b4" stroke-width="1.2"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="104" fill="url(#hexPattern)"/>
+</svg>
