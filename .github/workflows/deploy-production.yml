@@ -35,15 +35,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
-      - name: Verify Vercel access
-        run: |
-          echo "Token authenticates as:"
-          vercel whoami --token=${{ secrets.VERCEL_TOKEN }} || true
-          echo "Scopes this token can see:"
-          vercel teams ls --token=${{ secrets.VERCEL_TOKEN }} || true
-          echo "Workflow expects org: $VERCEL_ORG_ID"
-          echo "Workflow expects project: $VERCEL_PROJECT_ID"
-
       - name: Pull Vercel environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build
